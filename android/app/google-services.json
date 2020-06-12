@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "694344315270",
+    "firebase_url": "https://aishbrewcrew.firebaseio.com",
+    "project_id": "aishbrewcrew",
+    "storage_bucket": "aishbrewcrew.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694344315270:android:efcc3d857fafce75ccbc07",
+        "android_client_info": {
+          "package_name": "com.aish0509.brew_crew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "694344315270-bsdmifqndamfe7vt56eksqhivc56d572.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChkfOGeutMrRR5Y9brsHWHUXyddl4qYVc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "694344315270-bsdmifqndamfe7vt56eksqhivc56d572.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
