@@ -26,7 +26,7 @@ class AuthService {
       FirebaseUser user = result.user;
       return _userFromFirebaseUser(user);
     } catch (e) {
-      print(e);
+      print(e.toString());
       return null;
     }
   }
@@ -35,4 +35,12 @@ class AuthService {
   //register with username password
 
   //sign out
+  Future signOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }

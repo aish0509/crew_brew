@@ -1,3 +1,4 @@
+import 'package:brew_crew/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -6,6 +7,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final AuthService _authS = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -16,9 +19,23 @@ class _HomeState extends State<Home> {
           title: Text('Home Screen'),
           centerTitle: true,
         ),
-        body: Text(
-          'This is home screen',
-          style: TextStyle(color: Colors.brown[800]),
+        body: Column(
+          children: [
+            Text(
+              'This is home screen',
+              style: TextStyle(color: Colors.brown[800]),
+            ),
+            FlatButton.icon(
+                color: Colors.brown[600],
+                onPressed: () async {
+                  await _authS.signOut();
+                },
+                icon: Icon(
+                  Icons.cancel,
+                  color: Colors.brown[100],
+                ),
+                label: Text('Sign Out'))
+          ],
         ),
       ),
     );
