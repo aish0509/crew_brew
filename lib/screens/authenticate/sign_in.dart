@@ -21,17 +21,31 @@ class _SignInState extends State<SignIn> {
       ),
       body: Container(
         padding: EdgeInsets.all(30.0),
-        child: RaisedButton(
-            child: Text('Sign in Anonymously'),
-            onPressed: () async {
-              dynamic result = await _authService.anonSignIn();
-              if (result == null) {
-                print("error signing in");
-              } else {
-                print("signed in successfully");
-                print(result.uid);
-              }
-            }),
+        child: Form(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 25.0,
+              ),
+              TextFormField(
+                cursorColor: Colors.brown[800],
+                cursorWidth: 2.0,
+                style: TextStyle(color: Colors.brown[800], fontSize: 20.0),
+                onChanged: (value) {},
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              TextFormField(
+                cursorColor: Colors.brown[800],
+                cursorWidth: 2.0,
+                style: TextStyle(color: Colors.brown[800], fontSize: 20.0),
+                onChanged: (value) {},
+                obscureText: true,
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
