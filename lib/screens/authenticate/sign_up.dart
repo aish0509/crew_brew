@@ -14,6 +14,8 @@ class _SignUpState extends State<SignUp> {
   String email;
   String pwd;
   String name;
+  String error = '';
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +41,7 @@ class _SignUpState extends State<SignUp> {
         child: Container(
           padding: EdgeInsets.all(30.0),
           child: Form(
+            key: _formKey,
             child: Column(
               children: [
                 SizedBox(
@@ -54,6 +57,13 @@ class _SignUpState extends State<SignUp> {
                   cursorColor: Colors.brown[800],
                   cursorWidth: 2.0,
                   style: TextStyle(color: Colors.brown[800], fontSize: 20.0),
+                  validator: (value) {
+                    if (value.isEmpty == true) {
+                      return 'Please enter your name';
+                    } else {
+                      return null;
+                    }
+                  },
                   onChanged: (value) {
                     setState(() {
                       name = value;
@@ -100,6 +110,13 @@ class _SignUpState extends State<SignUp> {
                   cursorWidth: 2.0,
                   style: TextStyle(color: Colors.brown[800], fontSize: 20.0),
                   obscureText: true,
+                  validator: (value) {
+                    if (value.length < 6) {
+                      return 'Please enter a valid password with more than 6 characters';
+                    } else {
+                      return null;
+                    }
+                  },
                   onChanged: (value) {
                     setState(() {
                       pwd = value;
@@ -140,10 +157,23 @@ class _SignUpState extends State<SignUp> {
                   ),
                   color: Colors.brown[500],
                   onPressed: () async {
-                    print(email);
-                    print(pwd);
+                    if (_formKey.currentState.validate() == true) {
+                      dynamic result =
+                          await _authS.registerWithEmailPwd(email, pwd);
+                      if (result == null) {
+                        setState(() {
+                          error = "Please Supply a valid E-mail";
+                        });
+                      }
+                    }
                   },
                 ),
+                SizedBox(
+                    height: 30.0,
+                    child: Text(
+                      error,
+                      style: TextStyle(color: Colors.red),
+                    ))
               ],
             ),
           ),

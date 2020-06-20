@@ -18,7 +18,10 @@ class _AuthenticateState extends State<Authenticate> {
   @override
   Widget build(BuildContext context) {
     if (showSignIn == true) {
-      return SafeArea(child: SignIn(toggleView: toggleView));
+      return SafeArea(
+          child: SignIn(
+        toggleView: toggleView,
+      ));
     } else {
       return SafeArea(
           child: SignUp(
