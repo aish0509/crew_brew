@@ -16,6 +16,14 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    void showSettingsPanel() {
+      showModalBottomSheet(
+          context: context,
+          builder: (context) {
+            return SettingsForm();
+          });
+    }
+
     return StreamProvider<List<Brew>>.value(
       value: DatabaseService().brews,
       child: Scaffold(
@@ -36,17 +44,28 @@ class _HomeState extends State<Home> {
             ),
             actions: [
               FlatButton.icon(
-                  onPressed: () async {
-                    await _authS.signOut();
-                  },
-                  icon: Icon(
-                    Icons.person_outline,
-                    color: Colors.brown[100],
-                  ),
-                  label: Text(
-                    'Sign Out',
-                    style: TextStyle(color: Colors.brown[50], fontSize: 16.0),
-                  ))
+                onPressed: () async {
+                  await _authS.signOut();
+                },
+                icon: Icon(
+                  Icons.person_outline,
+                  color: Colors.brown[100],
+                ),
+                label: Text(
+                  'Sign Out',
+                  style: TextStyle(color: Colors.brown[50], fontSize: 16.0),
+                ),
+              ),
+              FlatButton.icon(
+                onPressed: () {
+                  showSettingsPanel();
+                },
+                icon: Icon(
+                  Icons.settings,
+                  color: Colors.brown[100],
+                ),
+                label: Text('Settings'),
+              )
             ],
           ),
         ),
