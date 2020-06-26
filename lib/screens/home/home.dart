@@ -69,7 +69,11 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        body: BrewList(),
+        body: Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/bg.png'), fit: BoxFit.cover)),
+            child: BrewList()),
       ),
     );
   }
