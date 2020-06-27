@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:brew_crew/models/brewmodel.dart';
+import 'package:brew_crew/models/models.dart';
 
 class BrewList extends StatefulWidget {
   @override
@@ -22,7 +22,7 @@ class _BrewListState extends State<BrewList> {
       itemBuilder: (context, index) {
         return Card(
           margin: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 0),
-          elevation: 10.0,
+          elevation: 12.0,
           shadowColor: Colors.brown[900],
           color: Colors.brown[50],
           child: ListTile(

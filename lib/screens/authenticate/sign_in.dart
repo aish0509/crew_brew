@@ -27,7 +27,7 @@ class _SignInState extends State<SignIn> {
             appBar: PreferredSize(
               preferredSize: Size.fromHeight(80.0),
               child: AppBar(
-                backgroundColor: Colors.brown[600],
+                backgroundColor: Colors.brown[800],
                 title: Text(
                   'Sign In to BrewCrew',
                 ),
@@ -100,12 +100,12 @@ class _SignInState extends State<SignIn> {
                           },
                           icon: Icon(
                             Icons.person_pin,
-                            color: Colors.brown[300],
+                            color: Colors.brown[400],
                           ),
                           label: Text(
                             'Or Sign Up...',
                             style: TextStyle(
-                                color: Colors.brown[300], fontSize: 15.0),
+                                color: Colors.brown[400], fontSize: 16.0),
                           ),
                         ),
                       ),
@@ -121,7 +121,7 @@ class _SignInState extends State<SignIn> {
                             style: TextStyle(
                                 color: Colors.brown[50], fontSize: 17.0),
                           ),
-                          color: Colors.brown[500],
+                          color: Colors.brown[700],
                           onPressed: () async {
                             if (_formkey.currentState.validate() == true) {
                               setState(() => loading = true);
